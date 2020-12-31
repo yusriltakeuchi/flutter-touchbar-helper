@@ -2,7 +2,7 @@
   "name": "flutter-touchbar-helper",
   "displayName": "Flutter Touchbar Helper",
   "description": "It's a touchbar helper to save time on cleaning and building flutter projects",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "leeyurani",
   "engines": {
     "vscode": "^1.52.0"
@@ -129,7 +129,7 @@
         },
         {
           "command": "flutter-touchbar-helper.closetools",
-          "group": "git-action",
+          "group": "tools",
           "when": "enableTools"
         },
         {

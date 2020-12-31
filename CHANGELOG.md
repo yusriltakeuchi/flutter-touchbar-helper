@@ -1,5 +1,8 @@
 # Change Log
 
+### 1.0.3
+- Update grouping tools
+
 ### 1.0.2
 - Updating screenshot
 

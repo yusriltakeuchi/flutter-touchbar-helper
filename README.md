@@ -19,6 +19,9 @@ This is the touchbar helper for Flutter, so you can save your time to doing some
 
 This is the release notes
 
+### 1.0.3
+- Update grouping tools
+
 ### 1.0.2
 - Updating screenshot
 
