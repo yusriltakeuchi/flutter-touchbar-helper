@@ -36,7 +36,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	/// Activate build single apk
-	const buildSingleApk = vscode.commands.registerCommand('flutter-touchbar-helper.flutterbuild.singleapk', () => {
+	const buildSingleApk = vscode.commands.registerCommand('flutter-touchbar-helper.build.singleapk', () => {
 		vscode.commands.executeCommand('setContext', 'enableBuild', false);
 		const terminal = vscode.window.createTerminal('Flutter Build APK');
 		terminal.show();
@@ -45,7 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	/// Activate build single appbundle
-	const buildSingleAppbundle = vscode.commands.registerCommand('flutter-touchbar-helper.flutterbuild.singleappbundle', () => {
+	const buildSingleAppbundle = vscode.commands.registerCommand('flutter-touchbar-helper.build.singleappbundle', () => {
 		vscode.commands.executeCommand('setContext', 'enableBuild', false);
 		const terminal = vscode.window.createTerminal('Flutter Build Appbundle');
 		terminal.show();
@@ -54,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	/// Activate build split per abi
-	const buildSplitABI = vscode.commands.registerCommand('flutter-touchbar-helper.flutterbuild.splitabi', () => {
+	const buildSplitABI = vscode.commands.registerCommand('flutter-touchbar-helper.build.splitabi', () => {
 		vscode.commands.executeCommand('setContext', 'enableBuild', false);
 		const terminal = vscode.window.createTerminal('Flutter Build ABI');
 		terminal.show();

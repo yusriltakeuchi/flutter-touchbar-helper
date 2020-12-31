@@ -3,9 +3,11 @@
   "displayName": "Flutter Touchbar Helper",
   "description": "It's a touchbar helper to save time on cleaning and building flutter projects",
   "version": "1.0.0",
+  "publisher": "leeyurani",
   "engines": {
     "vscode": "^1.52.0"
   },
+  "repository": "https://github.com/yusriltakeuchi/flutter-touchbar-helper",
   "categories": [
     "Other"
   ],
@@ -31,10 +33,9 @@
     "onCommand:flutter-touchbar-helper.closebuild",
     "onCommand:flutter-touchbar-helper.gitcommit",
     "onCommand:flutter-touchbar-helper.gitpush",
-    "onCommand:flutter-touchbar-helper.gitpush",
-    "onCommand:flutter-touchbar-helper.flutterbuild.singleapk",
-    "onCommand:flutter-touchbar-helper.flutterbuild.singleappbundle",
-    "onCommand:flutter-touchbar-helper.flutterbuild.splitabi"
+    "onCommand:flutter-touchbar-helper.build.singleapk",
+    "onCommand:flutter-touchbar-helper.build.singleappbundle",
+    "onCommand:flutter-touchbar-helper.build.splitabi"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -87,15 +88,15 @@
         "title": "🚀 Push"
       },
       {
-        "command": "flutter-touchbar-helper.flutterbuild.singleapk",
+        "command": "flutter-touchbar-helper.build.singleapk",
         "title": "📄 APK"
       },
       {
-        "command": "flutter-touchbar-helper.flutterbuild.singleappbundle",
+        "command": "flutter-touchbar-helper.build.singleappbundle",
         "title": "📄 Bundle"
       },
       {
-        "command": "flutter-touchbar-helper.flutterbuild.splitabi",
+        "command": "flutter-touchbar-helper.build.splitabi",
         "title": "📑 Split"
       }
     ],
@@ -137,22 +138,17 @@
           "when": "!enableBuild && !enableGit"
         },
         {
-          "command": "flutter-touchbar-helper.commit",
-          "group": "gittools",
-          "when": "!enableBuild"
-        },
-        {
-          "command": "flutter-touchbar-helper.flutterbuild.singleapk",
+          "command": "flutter-touchbar-helper.build.singleapk",
           "group": "tools",
           "when": "enableBuild"
         },
         {
-          "command": "flutter-touchbar-helper.flutterbuild.singleappbundle",
+          "command": "flutter-touchbar-helper.build.singleappbundle",
           "group": "tools",
           "when": "enableBuild"
         },
         {
-          "command": "flutter-touchbar-helper.flutterbuild.splitabi",
+          "command": "flutter-touchbar-helper.build.splitabi",
           "group": "tools",
           "when": "enableBuild"
         }
