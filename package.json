@@ -1,0 +1,184 @@
+{
+  "name": "flutter-touchbar-helper",
+  "displayName": "Flutter Touchbar Helper",
+  "description": "It's a touchbar helper to save time on cleaning and building flutter projects",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "macbook pro",
+    "touchbar",
+    "flutter",
+    "shortcuts",
+    "vscode",
+    "visual studio code",
+    "macbook",
+    "developers",
+    "touch bar"
+  ],
+  "activationEvents": [
+    "onLanguage:dart",
+    "workspaceContains:**/pubspec.yaml",
+    "workspaceContains:**/*.dart",
+    "onCommand:flutter-touchbar-helper.flutterclean",
+    "onCommand:flutter-touchbar-helper.flutterbuild",
+    "onCommand:flutter-touchbar-helper.git",
+    "onCommand:flutter-touchbar-helper.closegit",
+    "onCommand:flutter-touchbar-helper.closebuild",
+    "onCommand:flutter-touchbar-helper.gitcommit",
+    "onCommand:flutter-touchbar-helper.gitpush",
+    "onCommand:flutter-touchbar-helper.gitpush",
+    "onCommand:flutter-touchbar-helper.flutterbuild.singleapk",
+    "onCommand:flutter-touchbar-helper.flutterbuild.singleappbundle",
+    "onCommand:flutter-touchbar-helper.flutterbuild.splitabi"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "dart",
+        "extensions": [
+          ".dart"
+        ],
+        "aliases": [
+          "Dart"
+        ],
+        "configuration": "./syntaxes/dart-language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dart",
+        "scopeName": "source.dart",
+        "path": "./syntaxes/dart.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "flutter-touchbar-helper.flutterclean",
+        "title": "🗑️ Flutter Clean"
+      },
+      {
+        "command": "flutter-touchbar-helper.flutterbuild",
+        "title": "🛠️ Flutter Build"
+      },
+      {
+        "command": "flutter-touchbar-helper.git",
+        "title": "🔗 Git"
+      },
+      {
+        "command": "flutter-touchbar-helper.closegit",
+        "title": " 🅧 "
+      },
+      {
+        "command": "flutter-touchbar-helper.closebuild",
+        "title": " 🅧 "
+      },
+      {
+        "command": "flutter-touchbar-helper.gitcommit",
+        "title": "📘 Commit"
+      },
+      {
+        "command": "flutter-touchbar-helper.gitpush",
+        "title": "🚀 Push"
+      },
+      {
+        "command": "flutter-touchbar-helper.flutterbuild.singleapk",
+        "title": "📄 APK"
+      },
+      {
+        "command": "flutter-touchbar-helper.flutterbuild.singleappbundle",
+        "title": "📄 Bundle"
+      },
+      {
+        "command": "flutter-touchbar-helper.flutterbuild.splitabi",
+        "title": "📑 Split"
+      }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "flutter-touchbar-helper.closebuild",
+          "group": "tools",
+          "when": "enableBuild"
+        },
+        {
+          "command": "flutter-touchbar-helper.closegit",
+          "group": "git-action",
+          "when": "enableGit"
+        },
+        {
+          "command": "flutter-touchbar-helper.git",
+          "group": "gittools",
+          "when": "!enableGit && !enableBuild"
+        },
+        {
+          "command": "flutter-touchbar-helper.gitcommit",
+          "group": "git-action",
+          "when": "enableGit"
+        },
+        {
+          "command": "flutter-touchbar-helper.gitpush",
+          "group": "git-action",
+          "when": "enableGit"
+        },
+        {
+          "command": "flutter-touchbar-helper.flutterclean",
+          "group": "tools",
+          "when": "!enableBuild && !enableGit"
+        },
+        {
+          "command": "flutter-touchbar-helper.flutterbuild",
+          "group": "tools",
+          "when": "!enableBuild && !enableGit"
+        },
+        {
+          "command": "flutter-touchbar-helper.commit",
+          "group": "gittools",
+          "when": "!enableBuild"
+        },
+        {
+          "command": "flutter-touchbar-helper.flutterbuild.singleapk",
+          "group": "tools",
+          "when": "enableBuild"
+        },
+        {
+          "command": "flutter-touchbar-helper.flutterbuild.singleappbundle",
+          "group": "tools",
+          "when": "enableBuild"
+        },
+        {
+          "command": "flutter-touchbar-helper.flutterbuild.splitabi",
+          "group": "tools",
+          "when": "enableBuild"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "icon": "logo.png",
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.52.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.15.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.1.3",
+    "typescript": "^4.1.2",
+    "vscode-test": "^1.4.1"
+  }
+}
