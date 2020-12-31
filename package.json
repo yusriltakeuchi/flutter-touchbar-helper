@@ -2,7 +2,7 @@
   "name": "flutter-touchbar-helper",
   "displayName": "Flutter Touchbar Helper",
   "description": "It's a touchbar helper to save time on cleaning and building flutter projects",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publisher": "leeyurani",
   "engines": {
     "vscode": "^1.52.0"
@@ -35,7 +35,10 @@
     "onCommand:flutter-touchbar-helper.gitpush",
     "onCommand:flutter-touchbar-helper.build.singleapk",
     "onCommand:flutter-touchbar-helper.build.singleappbundle",
-    "onCommand:flutter-touchbar-helper.build.splitabi"
+    "onCommand:flutter-touchbar-helper.build.splitabi",
+    "onCommand:flutter-touchbar-helper.build.fluttertools",
+    "onCommand:flutter-touchbar-helper.build.closetools",
+    "onCommand:flutter-touchbar-helper.build.devtools"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -60,8 +63,16 @@
     ],
     "commands": [
       {
+        "command": "flutter-touchbar-helper.fluttertools",
+        "title": "🧰 Flutter Tools"
+      },
+      {
         "command": "flutter-touchbar-helper.flutterclean",
-        "title": "🗑️ Flutter Clean"
+        "title": "🗑️ Clean"
+      },
+      {
+        "command": "flutter-touchbar-helper.devtools",
+        "title": "🔥 DevTools"
       },
       {
         "command": "flutter-touchbar-helper.flutterbuild",
@@ -70,6 +81,10 @@
       {
         "command": "flutter-touchbar-helper.git",
         "title": "🔗 Git"
+      },
+      {
+        "command": "flutter-touchbar-helper.closetools",
+        "title": " 🅧 "
       },
       {
         "command": "flutter-touchbar-helper.closegit",
@@ -113,9 +128,14 @@
           "when": "enableGit"
         },
         {
+          "command": "flutter-touchbar-helper.closetools",
+          "group": "git-action",
+          "when": "enableTools"
+        },
+        {
           "command": "flutter-touchbar-helper.git",
           "group": "gittools",
-          "when": "!enableGit && !enableBuild"
+          "when": "!enableGit && !enableBuild && !enableTools"
         },
         {
           "command": "flutter-touchbar-helper.gitcommit",
@@ -128,14 +148,24 @@
           "when": "enableGit"
         },
         {
+          "command": "flutter-touchbar-helper.fluttertools",
+          "group": "tools",
+          "when": "!enableBuild && !enableGit && !enableTools"
+        },
+        {
           "command": "flutter-touchbar-helper.flutterclean",
           "group": "tools",
-          "when": "!enableBuild && !enableGit"
+          "when": "enableTools"
+        },
+        {
+          "command": "flutter-touchbar-helper.devtools",
+          "group": "tools",
+          "when": "enableTools"
         },
         {
           "command": "flutter-touchbar-helper.flutterbuild",
           "group": "tools",
-          "when": "!enableBuild && !enableGit"
+          "when": "!enableBuild && !enableGit && !enableTools"
         },
         {
           "command": "flutter-touchbar-helper.build.singleapk",

@@ -14,9 +14,20 @@ export function activate(context: vscode.ExtensionContext) {
 	const closeBuild = vscode.commands.registerCommand('flutter-touchbar-helper.closebuild', () => {
 		vscode.commands.executeCommand('setContext', 'enableBuild', false);
 	});
+
 	/// Closing git
 	const closeGit = vscode.commands.registerCommand('flutter-touchbar-helper.closegit', () => {
 		vscode.commands.executeCommand('setContext', 'enableGit', false);
+	});
+
+	/// Close tools
+	const closeTools = vscode.commands.registerCommand('flutter-touchbar-helper.closetools', () => {
+		vscode.commands.executeCommand('setContext', 'enableTools', false);
+	});
+
+	/// Open tools	
+	const openTools = vscode.commands.registerCommand('flutter-touchbar-helper.fluttertools', () => {
+		vscode.commands.executeCommand('setContext', 'enableTools', true);
 	});
 	
 	const git = vscode.commands.registerCommand('flutter-touchbar-helper.git', () => {
@@ -62,14 +73,22 @@ export function activate(context: vscode.ExtensionContext) {
 		terminal.sendText("flutter build apk --split-per-abi --release");
 	});
 
-	/// Activat eflutter clean
+	/// Activate flutter clean
 	const cleanFlutter = vscode.commands.registerCommand('flutter-touchbar-helper.flutterclean', () => {
 		const terminal = vscode.window.createTerminal('Flutter Clean Terminal');
 		terminal.show();
 		terminal.sendText("flutter clean");
 	});	
 
-	context.subscriptions.push(cleanFlutter, buildFlutter, buildSingleApk, buildSingleAppbundle, buildSplitABI, closeBuild, git, closeGit, commit, push);
+	/// Activate devtools
+	const devtools = vscode.commands.registerCommand('flutter-touchbar-helper.devtools', () => {
+		const terminal = vscode.window.createTerminal('Flutter DevTools Terminal');
+		terminal.show();
+		terminal.sendText("flutter pub global run devtools");
+
+	});	
+
+	context.subscriptions.push(cleanFlutter, buildFlutter, buildSingleApk, buildSingleAppbundle, buildSplitABI, closeBuild, git, closeGit, commit, push, openTools, closeTools, devtools);
 }
 
 // this method is called when your extension is deactivated
